@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8">
+  <title>🐶 狗狗年齡計算器</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <main class="container">
+    <h1>🐶 狗狗年齡計算器</h1>
+
+    <p class="hint">
+      選擇狗狗出生日期，按「開始計算」。<br>
+      （小於 1 歲：1 歲 ≈ 12.5 人歲；1 歲以上使用 16 × ln(狗的年齡) + 31）
+    </p>
+
+    <form id="dog-age-form" onsubmit="return false;">
+      <label for="birthdate" class="label">狗狗出生日期</label>
+      <input id="birthdate" name="birthdate" type="date" required aria-required="true" />
+
+      <button id="calcBtn" type="button" class="btn">開始計算</button>
+    </form>
+
+    <section id="result" class="result" aria-live="polite" hidden>
+      <div class="card fade-in">
+        <p id="dogAgeText" class="big"></p>
+        <p id="humanAgeText" class="small"></p>
+        <p id="note" class="note"></p>
+      </div>
+    </section>
+
+    <section id="historySec" class="history" hidden>
+      <h2>📌 上次計算結果</h2>
+      <div class="history-card">
+        <p id="historyText"></p>
+      </div>
+    </section>
+
+    <footer class="footer">
+      <small>換算公式：幼犬（12.5 倍）；成犬（16 × ln(age) + 31）</small>
+    </footer>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
